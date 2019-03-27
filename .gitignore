@@ -3,3 +3,22 @@
 ################################################################################
 
 /Library
+/.gradle
+/.vs
+/Temp
+/Unity.TextMeshPro.Editor.csproj
+/Unity.TextMeshPro.csproj
+/Unity.PackageManagerUI.Editor.csproj
+/Unity.CollabProxy.Editor.csproj
+/Unity.Analytics.DataPrivacy.csproj
+/test.apk
+/test-0.1-v1.symbols.zip
+/MudraUnityReference.sln
+/MudraUnityReference.Plugins.csproj
+/MudraUnityReference.Editor.csproj
+/MudraUnityReference.csproj
+/Assembly-CSharp.csproj
+/Assembly-CSharp-firstpass.csproj
+/Assembly-CSharp-Editor.csproj
+/obj/Debug
+/obj/Release
