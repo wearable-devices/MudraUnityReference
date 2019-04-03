@@ -21,6 +21,7 @@ allprojects {
 					}
         flatDir {
             dirs 'libs'
+			
         }
     }
 }
@@ -29,7 +30,7 @@ apply plugin: 'com.android.application'
 **APPLY_PLUGINS**
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])	
 	implementation 'com.github.wearable-devices:MudraAndroidSDK:+'
 **DEPS**}
 

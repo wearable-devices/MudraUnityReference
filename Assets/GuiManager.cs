@@ -13,23 +13,14 @@ public class GuiManager : MonoBehaviour
     public Transform Cube;
     public Transform Cursor;
     public float AirMouseSpeedX = 6f;
-    public float AirMouseSpeedY = 3f;
-
+    public float AirMouseSpeedY = 3f;   
     float mAirMousePosX, mAirMousePosY;
 
-    Quaternion _prevQuat;
-    Quaternion _IMUquat;
-    Vector3 _orientation, _orientation_prev;
+
     public void onIMUEvent(float[] imuData)
     {
-        _IMUquat.Set(imuData[0], imuData[1], imuData[2], imuData[3]);
-        _prevQuat.Set(0, 0, 0, -1);
-        Cube.localRotation = _prevQuat * Quaternion.Euler(0, _IMUquat.eulerAngles.z, 0);
-        //    _IMUquat = _IMUquat * Quaternion.Euler(0.0f - _IMUquat.eulerAngles.x, 0.0f - _IMUquat.eulerAngles.y, 0.0f );
-             IMU_text.text = _IMUquat[0].ToString() + " " + _IMUquat[1].ToString() + " " + _IMUquat[2].ToString() + " " + _IMUquat[3].ToString();
-        //  _orientation .Set(0, 1, 0);
-        //     _IMUquat* _prevQuat*Quaternion.Inverse(_IMUquat);
-      //  Cube.localRotation = Quaternion.Euler(0, 0, _IMUquat.eulerAngles.z);
+        Cube.localRotation= new Quaternion(imuData[0], imuData[1], imuData[2], imuData[3]);       
+        IMU_text.text = imuData[0].ToString() + " " + imuData[1].ToString() + " " + imuData[2].ToString() + " " + imuData[3].ToString();
     }
 
     Vector3 mousepos;
@@ -47,7 +38,7 @@ public class GuiManager : MonoBehaviour
         Cursor.localPosition = Camera.main.ScreenToWorldPoint(mousepos);
     }
 
-    public void onGestureEvent(UnityPlugin.GestureType gestureID)
+    public void onGestureEvent(GestureType gestureID)
     {
         Debug.Log("BroadcastReceiver_onMudraGestureEvent called" + gestureID.ToString());
         gesture_text.text = gestureID.ToString();

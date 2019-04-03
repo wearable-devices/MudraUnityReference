@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Mudra;
 using UnityEngine.Events;
 
+
 [System.Serializable]
 public class MudraIMUEvent : UnityEvent<float[]>
 {
@@ -18,7 +19,7 @@ public class MudraAirMouseEvent : UnityEvent<float[]>
 }
 
 [System.Serializable]
-public class MudraGestureEvent : UnityEvent<UnityPlugin.GestureType >
+public class MudraGestureEvent : UnityEvent<GestureType >
 {
 }
 
@@ -29,8 +30,12 @@ public class MudraFingertipPressureEvent : UnityEvent<float>
 
 public class MudraManager : MonoBehaviour
 {
-  //  static readonly MudraManagerEngine _instance = new MudraManagerEngine();
-  //  public static MudraManagerEngine Enable { get { return _instance; } }
+    //  static readonly MudraManagerEngine _instance = new MudraManagerEngine();
+    //  public static MudraManagerEngine Enable { get { return _instance; } }
+    public bool FingerTipPressure;
+    public bool IMU;
+    public bool Airmouse;
+    public bool Gestures;
     public  MudraIMUEvent IMUEvent;
     public  MudraAirMouseEvent AirMouseEvent;
     public  MudraGestureEvent GestureEvent;
@@ -41,6 +46,26 @@ public class MudraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (FingerTipPressure)
+            Enable_Pressure(true);
+        else
+            Enable_Pressure(false);
+
+        if (IMU)
+            Enable_IMU(true);
+        else
+            Enable_IMU(false);
+
+        if (Airmouse)
+            Enable_AirMouse(true);
+        else
+            Enable_AirMouse(false);
+
+        if (Gestures)
+            Enable_Gestures(true);
+        else
+            Enable_Gestures(false);
+
     }
 
     // Update is called once per frame
@@ -66,14 +91,16 @@ public class MudraManager : MonoBehaviour
             AirMouseEvent.Invoke(AirmouseXY);
     }
 
-    private void BroadcastReceiver_onMudraGestureEvent(UnityPlugin.GestureType gestureID)
+    private void BroadcastReceiver_onMudraGestureEvent(GestureType gestureID)
     {
+        
         if (GestureEvent != null)
             GestureEvent.Invoke(gestureID);
     }
 
     private void BroadcastReceiver_onFingerTipPressureEvent(float pressure)
     {
+        Debug.Log("pressure event t" + pressure);
         if (FingerTipPressureEvent != null)
             FingerTipPressureEvent.Invoke(pressure);
     }

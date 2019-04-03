@@ -1280,6 +1280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b50653f9a5ca64a8f5a15063bb6c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FingerTipPressure: 0
+  IMU: 0
+  Airmouse: 0
+  Gestures: 0
   IMUEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2427,9 +2431,9 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 100, y: 1500}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
