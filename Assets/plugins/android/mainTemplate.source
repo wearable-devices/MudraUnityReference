@@ -31,7 +31,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])	
-	implementation 'com.github.wearable-devices:MudraAndroidSDK:+'
+	implementation 'com.github.wearable-devices:MudraAndroidSDK:master-snapshot'
 **DEPS**}
 
 android {
